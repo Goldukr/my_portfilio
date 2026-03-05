@@ -1,16 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap");
 
 :root {
-  --bg: #0f1216;
-  --bg-soft: #141923;
-  --card: rgba(255, 255, 255, 0.08);
-  --card-strong: rgba(255, 255, 255, 0.14);
-  --ink: #f7f7f4;
-  --ink-soft: #c9ced6;
+  --bg: #0c0f14;
+  --bg-soft: #151b25;
+  --card: rgba(255, 255, 255, 0.12);
+  --card-strong: rgba(255, 255, 255, 0.2);
+  --ink: #ffffff;
+  --ink-soft: #d7dde6;
   --accent: #ffb347;
   --accent-2: #6fd0ff;
-  --line: rgba(255, 255, 255, 0.12);
-  --shadow: 0 30px 80px rgba(7, 10, 20, 0.55);
+  --line: rgba(255, 255, 255, 0.2);
+  --shadow: 0 30px 80px rgba(5, 8, 15, 0.6);
+}
+
+body[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-soft: #ffffff;
+  --card: rgba(255, 255, 255, 0.85);
+  --card-strong: rgba(255, 255, 255, 0.95);
+  --ink: #000000;
+  --ink-soft: #111111;
+  --accent: #f58b5a;
+  --accent-2: #4e9cff;
+  --line: rgba(20, 22, 24, 0.12);
+  --shadow: 0 20px 50px rgba(25, 30, 40, 0.15);
+  background: #ffffff;
 }
 
 *,
@@ -112,8 +126,8 @@ a {
 }
 
 .nav .cta {
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #0c1016;
+  background: transparent;
+  color: var(--ink);
   padding: 10px 18px;
   border-radius: 999px;
 }
@@ -129,6 +143,21 @@ a {
   justify-content: center;
   align-items: center;
   gap: 6px;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 .menu-toggle span {
@@ -246,6 +275,12 @@ main {
   background: transparent;
 }
 
+.hero-download {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
 .hero-meta-label {
   position: absolute;
   left: 10px;
@@ -268,17 +303,25 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 20px;
   color: #fff;
   padding-left: 140px;
   position: relative;
   z-index: 2;
 }
 
+body[data-theme="light"] .hero-meta-icons {
+  color: #000;
+}
+
+body[data-theme="light"] .hero-meta-label {
+  color: #000;
+}
+
 .hero-meta-icons i,
 .hero-meta-icons a {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -394,6 +437,15 @@ main {
   box-shadow: var(--shadow);
 }
 
+body[data-theme="light"] .about-panels .panel {
+  background: #cfe8ff;
+  color: #0c1016;
+}
+
+body[data-theme="light"] .about-panels .panel ul {
+  color: #0c1016;
+}
+
 .panel ul {
   margin: 16px 0 0;
   padding-left: 18px;
@@ -412,6 +464,11 @@ main {
   border: 1px solid var(--line);
   padding: 20px;
   border-radius: 18px;
+}
+
+body[data-theme="light"] .skill-card {
+  background: #cfe8ff;
+  color: #0c1016;
 }
 
 .skill-card h3 {
@@ -447,6 +504,11 @@ main {
   box-shadow: var(--shadow);
   display: grid;
   gap: 12px;
+}
+
+body[data-theme="light"] .project-card {
+  background: #cfe8ff;
+  color: #0c1016;
 }
 
 .project-meta {
@@ -492,6 +554,11 @@ main {
   box-shadow: var(--shadow);
 }
 
+body[data-theme="light"] .timeline-item {
+  background: #cfe8ff;
+  color: #0c1016;
+}
+
 .time {
   font-weight: 600;
   color: var(--accent);
@@ -516,8 +583,20 @@ main {
   border: 1px solid var(--line);
 }
 
+body[data-theme="light"] .contact-card {
+  color: #000;
+}
+
 .contact-card a {
   color: #fff;
+}
+
+body[data-theme="light"] .contact-card a {
+  color: #000;
+}
+
+body[data-theme="light"] .contact-actions .secondary {
+  color: #000;
 }
 
 .contact-actions {
@@ -660,6 +739,11 @@ main {
 
   .menu-toggle {
     display: flex;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
+    margin-right: 12px;
   }
 }
 

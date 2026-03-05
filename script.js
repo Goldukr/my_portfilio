@@ -1,6 +1,7 @@
 const revealEls = document.querySelectorAll(".reveal");
 const nav = document.querySelector(".nav");
 const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
 const modal = document.querySelector("#contact-modal");
 const openModalBtns = document.querySelectorAll(".open-modal");
 
@@ -39,6 +40,29 @@ document.addEventListener("click", (event) => {
   if (!clickedToggle && !clickedNav) {
     nav.classList.remove("open");
   }
+});
+
+const setThemeIcon = (theme) => {
+  themeToggle.innerHTML =
+    theme === "light"
+      ? '<i class="bi bi-moon-stars-fill" aria-hidden="true"></i>'
+      : '<i class="bi bi-sun-fill" aria-hidden="true"></i>';
+};
+
+const storedTheme = localStorage.getItem("theme");
+if (storedTheme) {
+  document.body.setAttribute("data-theme", storedTheme);
+  setThemeIcon(storedTheme);
+} else {
+  setThemeIcon("dark");
+}
+
+themeToggle.addEventListener("click", () => {
+  const current = document.body.getAttribute("data-theme");
+  const next = current === "light" ? "dark" : "light";
+  document.body.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  setThemeIcon(next);
 });
 
 const openModal = () => {
