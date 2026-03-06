@@ -132,6 +132,12 @@ a {
   border-radius: 999px;
 }
 
+body[data-theme="light"] .nav a,
+body[data-theme="light"] .nav .cta {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .menu-toggle {
   display: none;
   width: 42px;
